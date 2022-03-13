@@ -36,7 +36,7 @@ def test_post_humanize_open_hours_invalid_timestamp_lower():
 
 
 def test_post_humanize_open_hours_invalid_timestamp_greater():
-    payload = {"monday": [{"type": "open", "value": 66666}]}
+    payload = {"monday": [{"type": "open", "value": 86401}]}
     response = client.post("/humanize-open-hours/", json=payload)
     assert response.status_code == 422
     response_json = response.json()

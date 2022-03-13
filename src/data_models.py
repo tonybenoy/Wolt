@@ -31,8 +31,8 @@ class Timing(BaseModel):
             return v
         else:
             raise ValueError(
-                f"Timestamp not in range. \
-                    Should be between {MINTIME} and {MAXTIME}"
+                f"Timestamp not in range. Should be"
+                f" between {MINTIME} and {MAXTIME}"
             )
 
 
