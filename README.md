@@ -30,12 +30,11 @@ docker-compose build
 docker-compose up
 ```
 #### Dependencies through pip
-`gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload
+`gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload`
 ## Running tests
 All the config for tests are setup in pyproject.toml. Simply run pytest to run the complete tests and get coverage report.
 #### Using poetry
 ```
-
 poetry run pytest
 ```
 #### pytest
