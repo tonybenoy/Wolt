@@ -9,7 +9,9 @@ from src.routers import timings
 app = FastAPI()
 
 app.include_router(router=timings.router)
-logger = get_logger(__name__)
+logger = get_logger(
+    __name__,
+)
 
 
 @app.get("/test", tags=[Tags.test])
