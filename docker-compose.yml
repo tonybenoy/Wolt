@@ -6,8 +6,4 @@ services:
       dockerfile: ./Dockerfile
     image: localhost:5000/tony/fastapi-server:latest
     network_mode: host
-    volumes:
-      - type: bind
-        source: ./src
-        target: /src
-    command: "gunicorn -b 0.0.0.0:8000 main:app -w 1 -k uvicorn.workers.UvicornWorker --preload"
+    command: "gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload"
