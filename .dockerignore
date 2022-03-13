@@ -1,0 +1,4 @@
+.github
+.vscode
+.mypy_cache
+.pytest_cachesudo
