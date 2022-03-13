@@ -1,24 +1,9 @@
-from enum import Enum
 from typing import List
 
+from fastapi import HTTPException
 from pydantic import BaseModel, validator
 
-from src.constants import MAXTIME, MINTIME
-
-
-class TypeChoices(Enum):
-    open = "open"
-    close = "close"
-
-
-class Days(Enum):
-    monday = "Monday"
-    tuesday = "Tuesday"
-    wednesday = "Wednesday"
-    thursday = "Thursday"
-    friday = "Friday"
-    saturday = "Saturday"
-    sunday = "Sunday"
+from src.constants import MAXTIME, MINTIME, TypeChoices
 
 
 class Timing(BaseModel):
@@ -30,9 +15,12 @@ class Timing(BaseModel):
         if MINTIME <= v <= MAXTIME:
             return v
         else:
-            raise ValueError(
-                f"Timestamp not in range. Should be"
-                f" between {MINTIME} and {MAXTIME}"
+            raise HTTPException(
+                status_code=422,
+                detail=(
+                    f"Timestamp not in range. Should be"
+                    f" between {MINTIME} and {MAXTIME}"
+                ),
             )
 
 
