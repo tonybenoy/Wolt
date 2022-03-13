@@ -29,12 +29,37 @@ Install poetry [refer](https://python-poetry.org/docs/#installation)
 docker-compose build
 docker-compose up
 ```
+#### Dependencies through pip
+`gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload
 ## Running tests
 All the config for tests are setup in pyproject.toml. Simply run pytest to run the complete tests and get coverage report.
 #### Using poetry
 ```
+
 poetry run pytest
 ```
 #### pytest
 If dev dependencies are installed using pip
 `pytest`
+
+## Development
+Install the dev dependencies
+### pip
+### poetry
+
+### Run the project
+Running using poetry is highly recommended for the entire dev dependencies to work such as black, flake8 so on.
+#### Initial Setup
+Install dev dependency
+```
+poetry --dev-dependency
+```
+The project uses pre-commit to fix code before committing
+```
+pre-commit install
+```
+#### Running the project
+```
+poetry shell
+poetry run gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload
+```
