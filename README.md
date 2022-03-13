@@ -61,5 +61,5 @@ pre-commit install
 #### Running the project
 ```
 poetry shell
-poetry run gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload
+poetry run gunicorn -b 0.0.0.0:8000 src.main:app -w 1 -k uvicorn.workers.UvicornWorker --preload --reload
 ```
