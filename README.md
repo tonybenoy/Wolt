@@ -44,9 +44,6 @@ If dev dependencies are installed using pip
 
 ## Development
 Install the dev dependencies
-### pip
-### poetry
-
 ### Run the project
 Running using poetry is highly recommended for the entire dev dependencies to work such as black, flake8 so on.
 #### Initial Setup
