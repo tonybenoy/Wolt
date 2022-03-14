@@ -101,3 +101,20 @@ def test_post_humanize_open_hours_unclosed_restauant():
     assert response.status_code == 422
     response_json = response.json()
     assert "Closing time not available" == response_json["detail"]
+
+
+def test_post_humanize_closing_before_opening():
+    payload = {
+        "monday": [],
+        "tuesday": [
+            {"type": "open", "value": 64800},
+            {"type": "close", "value": 36000},
+        ],
+    }
+    response = client.post("/humanize-open-hours/", json=payload)
+    assert response.status_code == 422
+    response_json = response.json()
+    assert (
+        "Closing time cannot be less than opening time"
+        == response_json["detail"]
+    )
